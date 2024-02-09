@@ -761,17 +761,17 @@ const tree = (num) => {
     for (let riga = 0; riga < num; riga++) {
 
         spazi--;
-        for (j = 0; j < spazi; j++) {
+        for (let j = 0; j < spazi; j++) {
             albero += ' ';
         }
 
         indiceDispari++;
         let dispari = nDispari(indiceDispari);
-        for (j = 0; j < dispari; j++) {
+        for (let j = 0; j < dispari; j++) {
             albero += '*';
         }
 
-        for (j = 0; j < spazi; j++) {
+        for (let j = 0; j < spazi; j++) {
             albero += ' ';
         }
         albero += '\n';
@@ -784,3 +784,15 @@ tree(8);
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+console.log('\nEsercizio 29');
+const isItPrime = (num) => {
+
+    for (let i = 2; i < num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+
+};
+console.log(isItPrime(37));
