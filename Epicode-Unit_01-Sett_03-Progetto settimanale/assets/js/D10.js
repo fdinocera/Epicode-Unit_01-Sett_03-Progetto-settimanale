@@ -713,8 +713,9 @@ halfTree(10);
 */
 
 const nDispari = (n) => {
+
     let counter = 0;
-    const limite = n * n;
+    const limite = n * n + 1;
     for (i = 1; i < limite; i++) {
         if ((i % 2) !== 0) {
             counter++;
@@ -724,10 +725,7 @@ const nDispari = (n) => {
         }
     }
 };
-console.log(nDispari(3));
-
-
-
+nDispari(1);
 
 
 console.log('\nEsercizio 28');
@@ -739,38 +737,48 @@ const tree = (num) => {
     //5 righe -> base 9
 
 
-
-    //num=3
+    // progettino
+    //num = 3
     //1 riga -> 2sp + 1* +2sp
     //2 riga -> 1sp + 3* +1sp
     //3 riga -> 0sp + 5* +0sp
 
-    //for k = 1 to nDispari
-    //    j = 1 to num-1    +    j2 = dispari(k) + 1 to num-1
+    //riga -> 0 1 2    
+    //composizione di ogni riga
+    //spazi (2 1 0) + asterischi(1 3 5)  + spazi (2 1 0)
+
+    //spazi (2) + asterischi(dispari n. 1)  + spazi (2)
+    //spazi (1) + asterischi(dispari n. 3)  + spazi (1)
+    //spazi (0) + asterischi(dispari n. 5)  + spazi (0) 
+
+
+
 
     let albero = '';
-    //let base = 5; //terzo dispari 
-    let base = nDispari(num); //terzo dispari 
 
-    indiceDispari = 0;
+    let indiceDispari = 0;
+    let spazi = num;
     for (let riga = 0; riga < num; riga++) {
-        for (j = riga - 1; j > 0; j--) {
+
+        spazi--;
+        for (j = 0; j < spazi; j++) {
             albero += ' ';
         }
 
         indiceDispari++;
         let dispari = nDispari(indiceDispari);
-        for (j = 0; j > dispari; j++) {
-            albero += ' ';
+        for (j = 0; j < dispari; j++) {
+            albero += '*';
         }
 
-        for (j = riga - 1; j > 0; j++) {
+        for (j = 0; j < spazi; j++) {
             albero += ' ';
         }
         albero += '\n';
     }
+    console.log(albero);
 };
-tree(3);
+tree(8);
 
 
 /* ESERCIZIO 29
